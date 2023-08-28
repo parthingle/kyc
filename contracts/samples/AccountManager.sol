@@ -4,8 +4,9 @@ pragma solidity ^0.8.12;
 import "../interfaces/UserOperation.sol";
 import "../interfaces/IAccountManager.sol";
 import "../@openzeppelin/contracts/proxy/utils/Initializable.sol";
+import "../core/NonceManager.sol";
 
-contract AccountManager is IAccountManager, Initializable {
+contract AccountManager is IAccountManager, NonceManager, Initializable {
 
     address public masterWallet;
 
