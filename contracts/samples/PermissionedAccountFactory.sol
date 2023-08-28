@@ -14,11 +14,11 @@ import "./PermissionedAccount.sol";
  */
 contract PermissionedAccountFactory {
     PermissionedAccount public immutable accountImplementation;
-    IAccountManager public immutable _accountManager;
+    IAccountManager public immutable accountManager;
 
-    constructor(IEntryPoint _entryPoint, IAccountManager accountManager) {
-        accountImplementation = new PermissionedAccount(_entryPoint, accountManager);
-        _accountManager = accountManager;
+    constructor(IEntryPoint _entryPoint, IAccountManager _accountManager) {
+        accountImplementation = new PermissionedAccount(_entryPoint, _accountManager);
+        accountManager = _accountManager;
     }
 
     /**
@@ -27,7 +27,7 @@ contract PermissionedAccountFactory {
      * Note that during UserOperation execution, this method is called only if the account is not deployed.
      * This method returns an existing account address so that entryPoint.getSenderAddress() would work even after account creation
      */
-    function createAccount(address owner,uint256 salt) private onlyAccountManager returns (PermissionedAccount ret) {
+    function createAccount(address owner,uint256 salt) public onlyAccountManager returns (PermissionedAccount ret) {
         address addr = getAddress(owner, salt);
         uint codeSize = addr.code.length;
         if (codeSize > 0) {
@@ -42,7 +42,7 @@ contract PermissionedAccountFactory {
     /**
      * calculate the counterfactual address of this account as it would be returned by createAccount()
      */
-    function getAddress(address owner,uint256 salt) private onlyAccountManager view returns (address) {
+    function getAddress(address owner,uint256 salt) public onlyAccountManager view returns (address) {
         return Create2.computeAddress(bytes32(salt), keccak256(abi.encodePacked(
                 type(ERC1967Proxy).creationCode,
                 abi.encode(
@@ -53,7 +53,7 @@ contract PermissionedAccountFactory {
     }
 
     modifier onlyAccountManager() {
-        require(msg.sender == address(_accountManager), "only account manager");
+        require(msg.sender == address(accountManager), "only account manager");
         _;
     }
 }
