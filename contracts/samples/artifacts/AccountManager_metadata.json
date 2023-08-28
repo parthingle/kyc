@@ -1,0 +1,221 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_masterWallet",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "addUserAuthorization",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "sender",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nonce",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "initCode",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "callData",
+								"type": "bytes"
+							},
+							{
+								"internalType": "uint256",
+								"name": "callGasLimit",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "verificationGasLimit",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "preVerificationGas",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "maxFeePerGas",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "maxPriorityFeePerGas",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "paymasterAndData",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "signature",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct UserOperation",
+						"name": "userOp",
+						"type": "tuple"
+					}
+				],
+				"name": "authorizeUserOp",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "authorizedUsers",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "masterWallet",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "removeUserAuthorization",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"samples/AccountManager.sol": "AccountManager"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"core/Helpers.sol": {
+			"keccak256": "0x81b70ea6183fd28e6c00dc3cf357c8453abdd4cc46ec628e7589e4b6a188d626",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://f4a99aced25a842721a2495760af84b874c1f730c94f8b3e76c71c8b757c90f5",
+				"dweb:/ipfs/QmacEJqVFbwQxE4HTzqvWWAFT7uSbH2Yd7EMqdCx1DxzBz"
+			]
+		},
+		"interfaces/IAccountManager.sol": {
+			"keccak256": "0x52829dc9c3f27d9370be6553a33bb53f0a1ea14d5a044adacfff6647ce325aa0",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://6af5f16b456621bd835c877e2e936b858b241c238eabcf6d375f5754a78d2cdb",
+				"dweb:/ipfs/Qmcd3YoKk5WbxfuBJtBJsEftGprBggNyw8aguhs2MAP8Q2"
+			]
+		},
+		"interfaces/UserOperation.sol": {
+			"keccak256": "0xb9778d418650d05b798dd2f1302ffc598411908f80296bb6ff391d0017f2a8bb",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d3923a80ad02e77ba413caef2d4f71c7494bf8a3fd5fda753075310dbb9fe4b4",
+				"dweb:/ipfs/QmYieD4jEHcbvVrRQPZ5VBScDZfGdeZWbFvkxDhnezNXR1"
+			]
+		},
+		"samples/AccountManager.sol": {
+			"keccak256": "0x90cacd290a8db0ca54baa14915020df58bfaba9a2c81a32e455a4c3745e1d5e1",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://ce2b2ca9cae08e25828a336544f144da3e320e9ae9408cb90970ad22c3630ccb",
+				"dweb:/ipfs/QmXEyumKMMmvvbcSJ4QhPxiKi1h6W7TSQCtWXk7ckBmjMF"
+			]
+		}
+	},
+	"version": 1
+}
