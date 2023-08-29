@@ -38,12 +38,12 @@ contract AccountManager is IAccountManager, NonceManager, Initializable {
         _;
     }
     
-    function initialize(address anOwner) public virtual initializer {
-        _initialize(anOwner);
+    function initialize(address _masterWallet) public virtual initializer {
+        _initialize(_masterWallet);
     }
 
-    function _initialize(address anOwner) internal virtual {
-        masterWallet = anOwner;
+    function _initialize(address _masterWallet) internal virtual {
+        masterWallet = _masterWallet;
         emit AccountManagerInitialized(masterWallet);
     }
 
